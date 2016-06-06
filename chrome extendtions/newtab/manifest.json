@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Random Vietnamese girls",
+  "version": "0.2.2",
+    "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+  
+  
+  "background": {
+    "scripts": [
+    ]
+  },
+  "chrome_url_overrides": {
+    "newtab": "myPage.html"
+  }
+}

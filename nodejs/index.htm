@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <script>
+        function addLinks () {
+	for (var i=0, link; i<5; i++) {
+		link = document.createElement("a");
+		link.innerHTML = "Link " + i + "</br>";
+		link.onclick = (function(index)  {
+			alert(index);
+		})(i);
+		document.body.appendChild(link);
+	}
+}
+
+// click vào 5 link đều ra số 5
+window.onload = addLinks;
+    </script>
+    <title>sample page</title>
+</head>
+
+<body>
+    hello worlddd
+</body>
+
+</html>
