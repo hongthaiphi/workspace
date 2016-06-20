@@ -1,0 +1,3 @@
+2;install;UpdateServerStatus;1.1.5;Fri May 27 2016 11:46:03 GMT+0700 (ICT);http://cp.cam9.tv/module_upload/2/1.1.5.sh;"dùng để check server on hay off";
+1;install;UpdateServerModule;1.1.3;Wed Jun 08 2016 05:21:31 GMT+0700 (ICT);http://cp.cam9.tv/module_upload/1/1.1.3.sh;"dùng để chạy update các phiên bản mới";
+6;install;Namtv;1.1.1;Wed Jun 08 2016 07:04:06 GMT+0700 (ICT);module_upload/6/1.1.1.sh;"Phần mềm nén";

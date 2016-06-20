@@ -20,6 +20,55 @@ var getRanNumber = function (len) {
     return output;
 };
 
+function updateCamera(req, res, connection) {
+    var server_format = req.param('device_id');
+    console.log('device_id: ' + server_format);
+
+    var currentTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+    console.log(currentTime);
+
+    if (server_format !== 'undefined' && server_format) {
+
+        connection.query('UPDATE camera set lastupdatetime=?  where device_id=?',
+            [currentTime, server_format], function (err, result) {
+                connection.release();
+                if (err) {
+                    var json = JSON.stringify({
+                        error: 1,
+                        message: err
+                    });
+                    res.json(json);
+                    throw err;
+                }
+                console.log('Changed ' + result.changedRows + ' rows');
+                if (result.changedRows > 0) {
+                    var json = JSON.stringify({
+                        error: 0,
+                        message: 'Cập nhật thành công ' + server_format
+                    });
+                } else {
+                    var json = JSON.stringify({
+                        'error': '1',
+                        'message': 'Không tồn tại camera: ' + server_format
+                    });
+                }
+                console.log(json);
+                res.json(json);
+            }
+        );
+
+    } else {
+        connection.release();
+        var json = JSON.stringify({
+            'error': '5',
+            'message': 'Tham so khong dung'
+        });
+        console.log('updateCamera: ' + 'Tham so khong dung');
+        res.json(json);
+    }
+}
+
+
 function updateServer(req, res, connection) {
     var server_format = req.param('device_id');
     var cpu_temp = req.query.cpu_temp;
@@ -31,8 +80,8 @@ function updateServer(req, res, connection) {
 
     if (server_format !== 'undefined' && server_format) {
 
-        connection.query('UPDATE servers set lastupdatetime=sysdate(), cpu_temp=?, free_space=? where device_id=?',
-            [cpu_temp, free_space, server_format], function (err, result) {
+        connection.query('UPDATE servers set lastupdatetime=?, cpu_temp=?, free_space=? where device_id=?',
+            [currentTime, cpu_temp, free_space, server_format], function (err, result) {
                 connection.release();
                 if (err) {
                     var json = JSON.stringify({
@@ -81,6 +130,25 @@ function handle_database(req, res) {
         var action = req.param('action');
         //put lastupdatetime to servers    
         updateServer(req, res, connection);
+        connection.on('error', function (err) {
+            res.json({ "code": 100, "status": "Error in connection database" });
+            return;
+        });
+    });
+}
+
+
+function handle_update_camera_status(req, res) {
+    pool.getConnection(function (err, connection) {
+        if (err) {
+            connection.release();
+            res.json({ "code": 100, "status": "Error in connection database" });
+            return;
+        }
+        console.log('connected as id ' + connection.threadId);
+        var action = req.param('action');
+        //put lastupdatetime to servers    
+        updateCamera(req, res, connection);
         connection.on('error', function (err) {
             res.json({ "code": 100, "status": "Error in connection database" });
             return;
@@ -153,8 +221,9 @@ function updateLastUpdateModule(req, res, connection) {
                     var site_id = result[0].site_id;
                     var server_id = result[0].id;
                     console.log('server_id: ' + server_id);
-                    connection.query('update server_module set status_last_update = sysdate() where server_id=? and module_id=?',
-                        [server_id, module_id],
+                    var currentTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+                    connection.query('update server_module set status_last_update = ? where server_id=? and module_id=?',
+                        [currentTime, server_id, module_id],
                         function (err, result) {
                             connection.release();
                             // connection.release();
@@ -223,8 +292,9 @@ function insertServer(req, res, connection) {
                     });
                     res.json(json);
                 } else {
+                    var currentTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
                     connection.query('insert into servers(site_id, device_id, position_setup, create_date, user_create, lastupdatetime) ' +
-                        'values(?,?,?, sysdate(), "auto", sysdate())', [site_id, device_id_server, hostname],
+                        'values(?,?,?, ?, "auto", ?)', [site_id, device_id_server, hostname, currentTime, currentTime],
                         function (err, result) {
                             // connection.release();
                             if (err) {
@@ -593,10 +663,13 @@ var getlastversion = "SELECT A1.name, A1.description, A1.version, unix_timestamp
     + " GROUP BY A.module_id)A2"
     + " WHERE A1.module_id = A2.module_id and A1.version = A2.version order by module_id";
 
+var getLastVersionQuery = "SELECT sm.module_id, CONCAT(sm.version_x,'.',sm.version_y,'.',sm.version_z)version, mv.path_file, md.description,"
++ " md.name, mv.lastupdate FROM server_module sm ,module_version mv,module md" 
++ " WHERE sm.version_id = mv.id AND md.id = sm.module_id AND server_id=(SELECT id FROM servers WHERE device_id=?)"
 
 function getLastVersion(req, res, connection) {
     var device_id_server = req.query.device_id_server;
-    connection.query(getlastversion, [device_id_server], function (err, result) {
+    connection.query(getLastVersionQuery, [device_id_server], function (err, result) {
         connection.release();
         if (err) {
             res.json({ "code": 100, "status": "Error in connection database" });
@@ -604,7 +677,7 @@ function getLastVersion(req, res, connection) {
         } else {
             var listCam = '';
             for (cam in result) {
-                listCam += result[cam].module_id + ';install;' + result[cam].name +';'+   result[cam].version + ';' + result[cam].lastupdate + ';' + result[cam].path_file + ';"' + result[cam].description + '";' + '\n';
+                listCam += result[cam].module_id + ';install;' + result[cam].name + ';' + result[cam].version + ';' + result[cam].lastupdate + ';' + result[cam].path_file + ';"' + result[cam].description + '";' + '\n';
             }
             console.log("Get last version successfully " + listCam);
             res.send(listCam);
@@ -738,165 +811,216 @@ function updateInstallRemoveModule(req, res, connection) {
 }
 
 
-    //module which has in cms, not has in client
-    function getModuleNeedInstall(module_id_list, server_id, callback, connection) {
-            connection.query('select * from module_view where server_id=? and module_id not in (?)',
-                [server_id, module_id_list],
-                function (err, result) {
-                    var json;
-                    if (err) {
-                        console.log(err);
-                        connection.release();
-                        json = JSON.stringify({
-                            error: 1,
-                            message: err
-                        });
-                    }
-                    connection.release();
-                    var listModuleNeedInstall = '';
-                    for (cam in result) {
-                        listModuleNeedInstall += result[cam].module_id + ';install;' + result[cam].name
-                            + ';' + result[cam].version + ';' + result[cam].lastupdate
-                            + ';' + result[cam].path_file + ';"' + result[cam].description + '"\n';
-                    }
-                    console.log('getModuleNeedInstall: ' + listModuleNeedInstall);
-                    callback(null, listModuleNeedInstall);
-                });
-    }
-
-    //module which has in client, not has in cms
-    function getModuleNeedRemove(module_id_list, callback, connection) {
-            var db_log = '';
-            async.forEachOf(module_id_list, function (moduleId, key, callback) {
-
-                // Perform operation on file here.
-                console.log('Processing camera ' + moduleId);
-
-                // selectDB(res, connection, device_id_server, idCamera, sqlSelect, ipList[key]);
-                connection.query("select * from module_view where module_id=? ", [moduleId], function (err, result) {
-                    
-                    if (err) {
-                        console.log(err);
-                        callback(err);
-                    } else {
-                        // res.send(result);
-                        if (result.length == 0) {
-                            //khong ton tai camera o server, thong bao loi
-                            // res.write('khong ton tai camera o server');
-                            db_log += moduleId + ";remove\n";
-                            callback(null, db_log);
-                        } else {
-                            callback(null);
-                        }
-                    }
-                }
-                )
-
-
-            }, function (err) {
-                console.log('getModuleNeedRemove:' + db_log);
-                callback(null, db_log);
-            });
-
-    }
-
-    var checkVersionSql = "select * from module_view where module_id=? and server_id=? order by version";
-
-    //module which has in client, has in cms, and version in cms is newer 
-    function getModuleNeedUpdate(module_id_list, version_list, server_id, callback, connection) {
-            var db_log = '';
-            var listModuleNeedInstall = '';
-            async.forEachOf(module_id_list, function (moduleId, key, callback) {
-
-                // Perform operation on file here.
-                console.log('Processing camera ' + moduleId);
-
-                // selectDB(res, connection, device_id_server, idCamera, sqlSelect, ipList[key]);
-                connection.query(checkVersionSql, [moduleId, server_id], function (err, result) {
-                    
-                    if (err) {
-                        console.log(err);
-                        callback(err);
-                    } else {
-                        // res.send(result);
-                        if (result.length == 1) {
-                            if (result[0].version !== version_list[key]) {
-                                console.log("Co sự thay đổi phiên bản: " + moduleId);
-
-
-                                for (cam in result) {
-                                    listModuleNeedInstall += result[cam].module_id + ';update;' + result[cam].name
-                                        + ';' + result[cam].version + ';' + result[cam].lastupdate
-                                        + ';' + result[cam].path_file + ';"' + result[cam].description + '"\n';
-                                }
-
-                                callback(null, listModuleNeedInstall);
-                            }
-                        } else {
-                            console.log("Khong tim thay ban ghi");
-                            callback(null);
-                        }
-                    }
-                }
-                )
-            }, function (err) {
-                console.log('getModuleNeedUpdate: ' + listModuleNeedInstall);
-                callback(null, listModuleNeedInstall);
-            });
-    }
-
-    function handle_module(req, res) {
-        pool.getConnection(function (err, connection) {
+//module which has in cms, not has in client
+function getModuleNeedInstall(module_id_list, server_id, callback, connection) {
+    connection.query('select * from module_view where server_id=? and module_id not in (?)',
+        [server_id, module_id_list],
+        function (err, result) {
+            var json;
             if (err) {
+                console.log(err);
                 connection.release();
-                res.json({ "code": 100, "status": "Error in connection database" });
-                return;
+                json = JSON.stringify({
+                    error: 1,
+                    message: err
+                });
             }
-            console.log('connected as id ' + connection.threadId);
-            var action = req.param('action');
-            switch (action) {
-                case 'get_latest_version':
-                    getLastVersion(req, res, connection);
-                    break;
-                case 'get_module':
-                    getModule(req, res, connection);
-                    break;
-                case 'compare_version':
-                    compareVersion(req, res, connection);
-                    break;
-                case 'updateModuleStatus':
-                    updateInstallRemoveModule(req, res, connection);
-                    break;
-                case 'updateLastUpdateModule':
-                    updateLastUpdateModule(req, res, connection);
-                    break;
-                default:
-                    console.log('Do nothing');
-                    connection.release();
-                    res.json({ "code": 101, "status": "do nothing" });
+            connection.release();
+            var listModuleNeedInstall = '';
+            for (cam in result) {
+                listModuleNeedInstall += result[cam].module_id + ';install;' + result[cam].name
+                    + ';' + result[cam].version + ';' + result[cam].lastupdate
+                    + ';' + result[cam].path_file + ';"' + result[cam].description + '"\n';
             }
-
-            connection.on('error', function (err) {
-                res.json({ "code": 100, "status": "Error in connection database" });
-                return;
-            });
+            console.log('getModuleNeedInstall: ' + listModuleNeedInstall);
+            callback(null, listModuleNeedInstall);
         });
+}
+
+//module which has in client, not has in cms
+function getModuleNeedRemove(module_id_list, callback, connection) {
+    var db_log = '';
+    async.forEachOf(module_id_list, function (moduleId, key, callback) {
+
+        // Perform operation on file here.
+        console.log('Processing camera ' + moduleId);
+
+        // selectDB(res, connection, device_id_server, idCamera, sqlSelect, ipList[key]);
+        connection.query("select * from module_view where module_id=? ", [moduleId], function (err, result) {
+
+            if (err) {
+                console.log(err);
+                callback(err);
+            } else {
+                // res.send(result);
+                if (result.length == 0) {
+                    //khong ton tai camera o server, thong bao loi
+                    // res.write('khong ton tai camera o server');
+                    db_log += moduleId + ";remove\n";
+                    callback(null, db_log);
+                } else {
+                    callback(null);
+                }
+            }
+        }
+        )
+
+
+    }, function (err) {
+        console.log('getModuleNeedRemove:' + db_log);
+        callback(null, db_log);
+    });
+
+}
+
+var checkVersionSql = "select * from module_view where module_id=? and server_id=? order by version";
+
+//module which has in client, has in cms, and version in cms is newer 
+function getModuleNeedUpdate(module_id_list, version_list, server_id, callback, connection) {
+    var db_log = '';
+    var listModuleNeedInstall = '';
+    async.forEachOf(module_id_list, function (moduleId, key, callback) {
+
+        // Perform operation on file here.
+        console.log('Processing camera ' + moduleId);
+
+        // selectDB(res, connection, device_id_server, idCamera, sqlSelect, ipList[key]);
+        connection.query(checkVersionSql, [moduleId, server_id], function (err, result) {
+
+            if (err) {
+                console.log(err);
+                callback(err);
+            } else {
+                // res.send(result);
+                if (result.length == 1) {
+                    if (result[0].version !== version_list[key]) {
+                        console.log("Co sự thay đổi phiên bản: " + moduleId);
+
+
+                        for (cam in result) {
+                            listModuleNeedInstall += result[cam].module_id + ';update;' + result[cam].name
+                                + ';' + result[cam].version + ';' + result[cam].lastupdate
+                                + ';' + result[cam].path_file + ';"' + result[cam].description + '"\n';
+                        }
+
+                        callback(null, listModuleNeedInstall);
+                    }
+                } else {
+                    console.log("Khong tim thay ban ghi");
+                    callback(null);
+                }
+            }
+        }
+        )
+    }, function (err) {
+        console.log('getModuleNeedUpdate: ' + listModuleNeedInstall);
+        callback(null, listModuleNeedInstall);
+    });
+}
+
+function updateServerStatistic(req, res, connection) {
+    var device_id_server = req.query.device_id_server;
+    if (device_id_server !== 'undefined' && device_id_server) {
+        connection.query('select * from servers where device_id=?',
+            [device_id_server], function (err, result) {
+                if (err) {
+                    connection.release();
+                    res.json({ error: 1, message: err });
+                }
+                if (result.length == 0) {
+                    connection.release();
+                    res.json({ 'error': '6', 'message': 'Khong ton tai dinh danh may chu: ' + device_id_server });
+                } else {
+                    var server_id = result[0].id;
+                    console.log('server_id: ' + server_id);
+                    insertStatisticToDB(server_id, req, res, connection);
+                }
+            })
+    } else {
+        connection.release();
+        console.log('Tham so khong dung');
+        res.json({ 'error': '5', 'message': 'Tham so khong dung' });
     }
+}
 
-    app.get("/lastupdatetime", function (req, res) {
-        -
-            handle_database(req, res);
+function insertStatisticToDB(server_id, req, res, connection) {
+    var ram = req.query.ram;
+    var free_space = req.query.free_space;
+    var cpu_temp = req.query.cpu_temp;
+    var cpu_load = req.query.cpu_load;
+    var currentTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+    connection.query('insert into server_statistic(server_id, free_space, cpu_temp, ram, load_avg, create_date) values(?,?,?,?,?,?)',
+        [server_id, free_space, cpu_temp, ram, cpu_load, currentTime], function (err, result) {
+            connection.release();
+            if (err) {
+                
+                res.json({ error: 1, message: err });
+            } else {
+                res.json({ error: 0, message: 'Cập nhật thành công' });
+            }
+        })
+}
+
+function handle_module(req, res) {
+    pool.getConnection(function (err, connection) {
+        if (err) {
+            connection.release();
+            res.json({ "code": 100, "status": "Error in connection database" });
+            return;
+        }
+        console.log('connected as id ' + connection.threadId);
+        var action = req.param('action');
+        switch (action) {
+            case 'get_latest_version':
+                getLastVersion(req, res, connection);
+                break;
+            case 'get_module':
+                getModule(req, res, connection);
+                break;
+            case 'compare_version':
+                compareVersion(req, res, connection);
+                break;
+            case 'updateModuleStatus':
+                updateInstallRemoveModule(req, res, connection);
+                break;
+            case 'updateLastUpdateModule':
+                updateLastUpdateModule(req, res, connection);
+                break;
+            case 'updateServerStatistic':
+                updateServerStatistic(req, res, connection);
+                break;
+            default:
+                console.log('Do nothing');
+                connection.release();
+                res.json({ "code": 101, "status": "do nothing" });
+        }
+
+        connection.on('error', function (err) {
+            res.json({ "code": 100, "status": "Error in connection database" });
+            return;
+        });
     });
+}
 
-    app.get("/camera", function (req, res) {
-        -
-            handle_camera(req, res);
-    });
+app.get("/lastupdatetime", function (req, res) {
+    -
+        handle_database(req, res);
+});
 
-    app.get("/module", function (req, res) {
-        -
-            handle_module(req, res);
-    });
+app.get("/lastupdatetimecamera", function (req, res) {
+    -
+        handle_update_camera_status(req, res);
+});
+
+app.get("/camera", function (req, res) {
+    -
+        handle_camera(req, res);
+});
+
+app.get("/module", function (req, res) {
+    -
+        handle_module(req, res);
+});
 
 
-    app.listen(3000);
+app.listen(3000);

@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a016424a-4de2-4944-ae88-b49e3972660f" name="Default" comment="" />
+    <list default="true" id="a016424a-4de2-4944-ae88-b49e3972660f" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bash/readfile.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chrome extendtions/key.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chrome extendtions/newtab.crx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chrome extendtions/newtab.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chrome extendtions/newtab/manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chrome extendtions/newtab/myPage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chrome extendtions/newtab/options.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.server.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/friendlychat" afterPath="$PROJECT_DIR$/friendlychat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodejs/chromeextend" afterPath="$PROJECT_DIR$/nodejs/chromeextend" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodejs/fbchatbot" afterPath="$PROJECT_DIR$/nodejs/fbchatbot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodejs/photoshare" afterPath="$PROJECT_DIR$/nodejs/photoshare" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodejs/tumblr-downloader" afterPath="$PROJECT_DIR$/nodejs/tumblr-downloader" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bash/lib.sh" afterPath="$PROJECT_DIR$/bash/lib.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bash/test.sh" afterPath="$PROJECT_DIR$/bash/test.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bash/updateServerModules.sh" afterPath="$PROJECT_DIR$/bash/updateServerModules.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.js" afterPath="$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodejs/test.js" afterPath="$PROJECT_DIR$/nodejs/test.js" />
+    </list>
     <ignored path="workspace.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +44,9 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nodejs/chromeextend/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding>
-                <marker date="1464697792602" expanded="true" signature="2671:2677" ph="{...}" />
-              </folding>
+            <state relative-caret-position="36">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -36,18 +54,62 @@
       <file leaf-file-name="cameraapi.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="463" column="56" selection-start-line="463" selection-start-column="16" selection-end-line="463" selection-end-column="56" />
+            <state relative-caret-position="9630">
+              <caret line="535" column="56" selection-start-line="535" selection-start-column="56" selection-end-line="535" selection-end-column="56" />
+              <folding>
+                <marker date="1465552731843" expanded="true" signature="40350:40363" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sync_exam.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/sync_exam.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="738">
+              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+              <folding>
+                <marker date="1464855902895" expanded="true" signature="5794:5806" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cms_api.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/cms_api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="611">
+              <caret line="206" column="20" selection-start-line="206" selection-start-column="20" selection-end-line="206" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sync_exam.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/sync_exam.js">
+      <file leaf-file-name="getNAMTV.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cam9/modules/getNAMTV.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cameraDetector.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cam9/modules/cameraDetector.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="initServer.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cam9/initServer.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -55,11 +117,15 @@
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.js" />
         <option value="$PROJECT_DIR$/nodejs/sp-node-mysql/sync_exam.js" />
+        <option value="$PROJECT_DIR$/nodejs/sp-node-mysql/cms_api.js" />
       </list>
     </option>
   </component>
@@ -82,7 +148,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -150,6 +216,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cam9" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cam9" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -160,6 +258,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
@@ -183,15 +283,17 @@
       <workItem from="1464226641530" duration="1796000" />
       <workItem from="1464746673822" duration="18000" />
       <workItem from="1464746758611" duration="2122000" />
+      <workItem from="1466397491585" duration="2573000" />
+      <workItem from="1466407786632" duration="1486000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3973000" />
+    <option name="totallyTimeSpent" value="8032000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="24" width="1600" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -229,6 +331,9 @@
       <path value="$PROJECT_DIR$/nodejs/tumblr-downloader" />
       <path value="$PROJECT_DIR$/friendlychat" />
       <path value="$PROJECT_DIR$/nodejs/fbchatbot" />
+      <path value="$PROJECT_DIR$" />
+      <path value="$PROJECT_DIR$/nodejs/newword" />
+      <path value="$PROJECT_DIR$/python/facebook-page-post-scraper" />
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
@@ -238,72 +343,176 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/nodejs/chromeextend/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1464697792602" expanded="true" signature="2671:2677" ph="{...}" />
-          </folding>
+        <state relative-caret-position="36">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nodejs/chromeextend/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="9630">
+          <caret line="535" column="56" selection-start-line="535" selection-start-column="56" selection-end-line="535" selection-end-column="56" />
           <folding>
-            <marker date="1464697792602" expanded="true" signature="2671:2677" ph="{...}" />
+            <marker date="1465552731843" expanded="true" signature="40350:40363" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nodejs/chromeextend/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1464697792602" expanded="true" signature="2671:2677" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nodejs/chromeextend/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <marker date="1464697792602" expanded="true" signature="2671:2677" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="463" column="56" selection-start-line="463" selection-start-column="16" selection-end-line="463" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/sync_exam.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+        <state relative-caret-position="738">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+          <folding>
+            <marker date="1464855902895" expanded="true" signature="5794:5806" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/cms_api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3942">
+          <caret line="219" column="25" selection-start-line="219" selection-start-column="25" selection-end-line="219" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cam9/initServer.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/chromeextend/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8334">
+          <caret line="463" column="56" selection-start-line="463" selection-start-column="16" selection-end-line="463" selection-end-column="56" />
+          <folding>
+            <marker date="1465552731843" expanded="true" signature="40350:40363" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/sync_exam.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1464855902895" expanded="true" signature="5794:5806" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/chromeextend/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1465552731843" expanded="true" signature="40350:40363" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/chromeextend/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1465552731843" expanded="true" signature="40350:40363" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/chromeextend/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/chromeextend/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/cameraapi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9630">
+          <caret line="535" column="56" selection-start-line="535" selection-start-column="56" selection-end-line="535" selection-end-column="56" />
+          <folding>
+            <marker date="1465552731843" expanded="true" signature="40350:40363" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/sync_exam.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+          <folding>
+            <marker date="1464855902895" expanded="true" signature="5794:5806" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cam9/initServer.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodejs/sp-node-mysql/cms_api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="206" column="20" selection-start-line="206" selection-start-column="20" selection-end-line="206" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cam9/modules/getNAMTV.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cam9/modules/cameraDetector.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
           <folding />
         </state>
       </provider>

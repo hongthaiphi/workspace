@@ -1,0 +1,2 @@
+1;install;UpdateServerModule;1.1.5;1466045445;http://cp.cam9.tv/module_upload/1/1.1.4.sh
+9;install;cameraDetector;1.1.1;1466050070;http://cp.cam9.tv/module_upload/8/1.1.1.sh

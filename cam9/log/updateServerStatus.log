@@ -1,0 +1,36 @@
+Wed Jun 15 16:12:11 ICT 2016: [updateServerStatistic.sh] start updateServerStatistic
+Wed Jun 15 16:12:11 ICT 2016: [updateServerStatistic.sh] http://cp.cam9.tv:3000/updateServerStatistic?device_id_server=ec:f4:bb:04:ec:ab&ram=547&free_space=&cpu_tem=53&cpu_load=0.42
+Wed Jun 15 16:18:43 ICT 2016: [updateServerStatistic.sh] start updateServerStatistic
+Wed Jun 15 16:18:44 ICT 2016: [updateServerStatistic.sh] http://cp.cam9.tv:3000/updateServerStatistic?device_id_server=ec:f4:bb:04:ec:ab&ram=526&free_space=&cpu_tem=62&cpu_load=0.88
+Wed Jun 15 16:19:20 ICT 2016: [updateServerStatistic.sh] start updateServerStatistic
+Wed Jun 15 16:19:21 ICT 2016: [updateServerStatistic.sh] http://cp.cam9.tv:3000/updateServerStatistic?device_id_server=ec:f4:bb:04:ec:ab&ram=521&free_space=&cpu_tem=60&cpu_load=0.55
+Wed Jun 15 16:19:21 ICT 2016: [cameraDetector.sh] Done
+Wed Jun 15 16:19:21 ICT 2016: [cameraDetector.sh] IP_ADDR:  - MAC_ADDR: 
+Wed Jun 15 16:19:22 ICT 2016: [cameraDetector.sh] 
+Wed Jun 15 16:20:49 ICT 2016: [cameraDetector.sh] Done
+Wed Jun 15 16:20:49 ICT 2016: [cameraDetector.sh] IP_ADDR:  - MAC_ADDR: 
+Wed Jun 15 16:20:49 ICT 2016: [cameraDetector.sh] 
+Wed Jun 15 16:34:14 ICT 2016: [getDisk.sh] Check Disk: 
+Wed Jun 15 16:34:14 ICT 2016: [getDisk.sh] partition:/dev/sda3;size:;used:;avail:;percent_used:%;percent_avail:%
+Wed Jun 15 16:34:14 ICT 2016: [getRAM.sh] Wed Jun 15 16:34:14 ICT 2016 Checking RAM ...
+Wed Jun 15 16:34:14 ICT 2016: [getRAM.sh] --------------------------------------------------------------
+Wed Jun 15 16:34:14 ICT 2016: [getRAM.sh] MEM_TOTAL:3823; MEM_USED:2572; MEM_FREE:364; MEM_SHARED:459; MEM_BUFFERS:887; MEM_CACHED:548
+Wed Jun 15 16:34:14 ICT 2016: [getRAM.sh] SWAP_TOTAL:3846; SWAP_USED:1558; SWAP_FREE:2288
+Wed Jun 15 16:34:14 ICT 2016: [getRAM.sh] -e
+Wed Jun 15 16:34:14 ICT 2016: [getRAM.sh] Wed Jun 15 16:34:14 ICT 2016 Checked
+Wed Jun 15 16:34:14 ICT 2016: [getRAM.sh] --------------------------------------------------------------
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] start updateServerStatistic
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] Ok.LOADAVG:0.38
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] Check Disk: 
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] partition:/dev/sda3;size:;used:;avail:;percent_used:%;percent_avail:%
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] Wed Jun 15 16:34:14 ICT 2016 Checking RAM ...
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] --------------------------------------------------------------
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] MEM_TOTAL:3823; MEM_USED:2571; MEM_FREE:364; MEM_SHARED:459; MEM_BUFFERS:887; MEM_CACHED:548
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] SWAP_TOTAL:3846; SWAP_USED:1558; SWAP_FREE:2288
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] -e
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] Wed Jun 15 16:34:14 ICT 2016 Checked
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] --------------------------------------------------------------
+Wed Jun 15 16:34:14 ICT 2016: [updateServerStatistic.sh] http://cp.cam9.tv:3000/updateServerStatistic?device_id_server=ec:f4:bb:04:ec:ab&ram=364&free_space=&cpu_tem=55&cpu_load=0.38
+Wed Jun 15 16:34:15 ICT 2016: [cameraDetector.sh] Done
+Wed Jun 15 16:34:15 ICT 2016: [cameraDetector.sh] IP_ADDR:  - MAC_ADDR: 
+Wed Jun 15 16:34:15 ICT 2016: [cameraDetector.sh] 

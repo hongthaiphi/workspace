@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "New tab New word",
+  "version": "0.1.1",
+
+  
+  
+  "background": {
+    "scripts": [
+    ]
+  },
+  "chrome_url_overrides": {
+    "newtab": "myPage.html"
+  }
+}

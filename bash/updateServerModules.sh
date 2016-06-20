@@ -54,7 +54,7 @@ updateServerModules()
 	# 	fi
 	# done <<< "$(cat $CAM9/run/updateServerModules.old.version.txt)"
 	#wget -q "http://cp.cam9.tv:3000/module?action=get_latest_version&device_id_server=$HOSTNAME&module_id=$STRING"
-	LATEST_ALL_MODULE=$(wget -q "http://cp.cam9.tv:3000/module?action=get_latest_version&device_id_server=00:26:2d:4a:2a:d4" -O $CAM9/run/updateServerModules.version.txt)
+	LATEST_ALL_MODULE=$(wget -q "http://cp.cam9.tv:3000/module?action=get_latest_version&device_id_server=$HOSTNAME" -O $CAM9/run/updateServerModules.version.txt)
 	while IFS='' read -r i || [[ -n "$i" ]]; do
 		echo "$i"
 		MODULE_ID=$(echo $i | awk -F';' '{print $1}')

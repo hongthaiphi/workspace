@@ -1,0 +1,5 @@
+1;install;UpdateServerModule;1.1.4;1466045445;http://cp.cam9.tv/module_upload/1/1.1.4.sh
+2;install;UpdateServerStatus;1.1.6;1466045351;http://cp.cam9.tv/module_upload/2/1.1.6.sh
+6;install;Namtv;1.1.1;1465344246;http://cp.cam9.tv/module_upload/6/1.1.1.sh
+7;install;updateServerStatistic;1.1.1;1466049290;http://cp.cam9.tv/module_upload/7/1.1.1.sh
+8;install;cameraDetector;1.1.1;1466050070;http://cp.cam9.tv/module_upload/8/1.1.1.sh
